@@ -9,6 +9,7 @@ end
 RSpec.describe Attendee do
     before(:each) do
         @attendee = Attendee.new({name: 'Megan', budget: '$50'})
+        @item1 = Item.new('Chalkware Piggy Bank')
     end
 
     describe 'initialize' do
@@ -27,5 +28,11 @@ RSpec.describe Attendee do
         it 'has a hash for items bid on' do
             expect(@attendee.items).to eq({})
         end
+    end
+
+    it 'can bid on items in their budget' do
+        @attendee.bid(@item1)
+
+        expect(@attendee.items).to eq [@item1]
     end
 end

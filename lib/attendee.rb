@@ -4,6 +4,7 @@ class Attendee
     def initialize(attributes)
         @name = attributes[:name]
         @budget = attributes[:budget]
-        @items = {}
+        @items = []
     end
+
 end
