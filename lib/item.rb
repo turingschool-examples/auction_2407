@@ -8,7 +8,7 @@ class Item
     end
 
     def add_bid(attendee, bid_amount)
-        return @bids[attendee] = bid_amount if @closed == false
+        @bids[attendee] = bid_amount if @closed == false
     end
 
     def current_high_bid
