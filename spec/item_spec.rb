@@ -29,7 +29,7 @@ RSpec.describe Item do
         it 'can add bids to the item bids hash' do
             @item1.add_bid(@attendee1, 22)
             @item1.add_bid(@attendee2, 20)
-            expect(@item1.bids).to eq({@attendee1=>20, @attendee2=>22})
+            expect(@item1.bids).to eq({@attendee1=>22, @attendee2=>20})
         end
     end
 end

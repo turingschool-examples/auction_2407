@@ -6,4 +6,9 @@ class Item
         @name = name
         @bids = {}
     end
+
+    def add_bid(attendee, bid)
+        # require 'pry'; binding.pry
+        @bids[attendee] = bid
+    end
 end
