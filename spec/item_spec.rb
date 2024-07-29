@@ -21,11 +21,11 @@ RSpec.describe Item do
   end
 
   describe '#close_bidding' do
-    it 'can be bid on' do
+    it 'returns true of biddable' do
       expect(@item5.biddable).to be true
     end
 
-    it 'can not be bid on' do
+    it 'returns false of biddable' do
       expect(@item5.biddable).to be true
       @item5.close_bidding
       
