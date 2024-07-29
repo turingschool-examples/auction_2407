@@ -30,9 +30,14 @@ attr_reader :items
   end
 
   def bidders
-    @items.flat_map { |item| item.bids.keys }
-    .map(&:name)
-    .uniq  
+    bidders_names = []
+
+    @items.each do |item|
+      item.bids.each_key do |attendee|
+        bidders_names << attendee.name if !bidders_names.include?(attendee.name)
+      end
+    end
+    bidders_names
   end
 
   def bidder_info 
