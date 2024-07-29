@@ -82,6 +82,13 @@ RSpec.describe Auction do
         end
     end
 
+    describe '#admit_attendees' do
+        it 'adds attendees to the list' do
+            @auction.admit_attendees(@attendee1)
+            expect(@auction.attendee_list).to eq([@attendee1])
+        end
+    end
+
     describe '#bidder_info' do
         it 'returns a hash of the bidder, budget, and items bid for' do
             @auction.admit_attendees(@attendee1)
