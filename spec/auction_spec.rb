@@ -28,5 +28,12 @@ RSpec.describe Auction do
 
             expect(@auction.items).to eq [@item1, @item2]
         end
+
+        it 'can name the items in items' do
+            @auction.add_item(@item1)
+            @auction.add_item(@item2)
+
+            expect(@auction.item_names).to eq ['Chalkware Piggy Bank', 'Bamboo Picture Frame']
+        end
     end
 end 
