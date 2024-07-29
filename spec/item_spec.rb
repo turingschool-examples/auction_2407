@@ -17,7 +17,6 @@ RSpec.describe Item do
       expect(@item1).to be_an_instance_of(Item)
       expect(@item2).to be_an_instance_of(Item)
       expect(@item1.name).to eq("Chalkware Piggy Bank")
-
     end
   end
 end
