@@ -1,11 +1,12 @@
 require 'spec_helper'
 
-RSpec.describe auction do
+RSpec.describe Auction do
     before (:each) do
         @auction = Auction.new
     end
 
-    describe '#initialize()' do
+    describe '#initialize' do
+
         it 'is an instance of an Auction' do
             expect(@auction).to be_a(Auction)
         end
