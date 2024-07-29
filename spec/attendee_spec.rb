@@ -11,7 +11,7 @@ RSpec.describe Attendee do
         end
 
         it 'has a name' do
-            expect(@item1.name).to eq('Megan')
+            expect(@attendee.name).to eq('Megan')
         end
 
         it 'has a budget' do

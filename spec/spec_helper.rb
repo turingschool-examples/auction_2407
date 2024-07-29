@@ -4,3 +4,4 @@ end
 
 require 'pry'
 require './lib/item'
+require './lib/attendee'
