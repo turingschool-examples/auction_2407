@@ -51,4 +51,16 @@ RSpec.describe Item do
             expect(@item1.current_highest_bid).to eq(50)
         end
     end
+
+    describe 'close_bidding' do
+        it 'will ensure that bids cannot be place on an item once invoked' do
+            @item1.add_bid(@attendee2, 20)
+            expect(@item1.current_highest_bid).to eq(20)
+
+            @item1.close_bidding
+
+            @item1.add_bid(@attendee1, 22)
+            expect(@item1.current_highest_bid).to eq(20)
+        end
+    end
 end
