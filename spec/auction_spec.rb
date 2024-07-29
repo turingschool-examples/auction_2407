@@ -1,5 +1,7 @@
 require './lib/auction'
 require './lib/item'
+require './lib/attendee'
+
 
 
 RSpec.describe Auction do
@@ -42,6 +44,15 @@ RSpec.describe Auction do
       expected = ['Chalkware Piggy Bank', 'Bamboo Picture Frame']
 
       expect(@auction.item_names).to eq(expected)
+    end
+  end
+
+  describe '#bids' do
+    it 'returns bids' do
+      @auction.add_item(@item1)
+
+      expect(@item1.bids).to eq({})
+
     end
   end
 end
