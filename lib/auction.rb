@@ -33,4 +33,13 @@ class Auction
         @bidder_info[attendee] = { budget: attendee.budget, items: []}
     end
 
+    def update_bidder_info_items
+        @bidder_info.each do |attendee, info|
+            attendee_bids = @items.find_all do |item|
+                item.bids.keys.include?(attendee)
+            end
+            info[:items] = attendee_bids
+        end
+    end
+
 end

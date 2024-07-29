@@ -105,4 +105,30 @@ RSpec.describe Auction do
             })
         end
     end
+
+    describe "update_bidder_info_items" do
+
+        it "will update bidder_info to contain all the items that the atteendees have bid on" do
+            @auction2.add_bidder(@attendee1)
+            @auction2.add_bidder(@attendee2)
+
+            @item3.add_bid(@attendee1, 20)
+            @item4.add_bid(@attendee1, 30)
+
+            @item3.add_bid(@attendee2, 25)
+            @item1.add_bid(@attendee2,45)
+
+            @auction2.update_bidder_info_items
+            expect(@auction2.bidder_info).to eq({
+                @attendee1 => {
+                    :budget => 50,
+                    :items => [@item3, @item4]
+                },
+                @attendee2 => {
+                    :budget => 75,
+                    :items => [@item1,@item3]
+                }
+            })
+        end
+    end
 end
