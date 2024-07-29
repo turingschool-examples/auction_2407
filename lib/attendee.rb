@@ -7,4 +7,7 @@ class Attendee
         @items = []
     end
 
+    def bid(item)
+        @items << item
+    end
 end

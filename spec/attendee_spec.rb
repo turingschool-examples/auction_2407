@@ -26,7 +26,7 @@ RSpec.describe Attendee do
         end
 
         it 'has a hash for items bid on' do
-            expect(@attendee.items).to eq({})
+            expect(@attendee.items).to eq []
         end
     end
 
