@@ -15,4 +15,11 @@ class Auction
     end
     name_list
   end
+
+  def unpopular_items
+    no_bids = @items.find_all do |item|
+      item.bids.values.empty?
+    end
+    no_bids
+  end
 end

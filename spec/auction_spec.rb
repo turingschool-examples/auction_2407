@@ -83,7 +83,7 @@ RSpec.describe Auction do
       @auction.add_item(@item5)
       @item1.add_bid(@attendee2, 20)
       @item1.add_bid(@attendee1, 22)
-      @item4.add_bid(attendee3, 50)
+      @item4.add_bid(@attendee3, 50)
       expected = [@item2, @item3, @item5]
 
       expect(@auction.unpopular_items).to eq(expected)
