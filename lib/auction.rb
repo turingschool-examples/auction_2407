@@ -1,9 +1,10 @@
 class Auction
-    attr_reader :items, :item_names
+    attr_reader :items, :item_names, :bidders
 
     def initialize
         @items = []
         @item_names = []
+        @bidders = []
     end
 
     def add_item(item)
@@ -24,5 +25,9 @@ class Auction
             potential_rev += item.current_high_bid
         end
         potential_rev
+    end
+
+    def add_bidder(attendee)
+        @bidders << attendee.name
     end
 end

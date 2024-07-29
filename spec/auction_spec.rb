@@ -124,10 +124,16 @@ RSpec.describe Auction do
         end
 
         it 'accepts each bidder into an array' do
+            @auction.add_bidder(@attendee1)
+            @auction.add_bidder(@attendee2)
+            @auction.add_bidder(@attendee3)
             expect(@auction.bidders.count).to eq 3
         end
 
         it 'accepts just the name as a string' do
+            @auction.add_bidder(@attendee1)
+            @auction.add_bidder(@attendee2)
+            @auction.add_bidder(@attendee3)
             expect(@auction.bidders).to eq ['Megan', 'Bob', 'Mike']
         end
     end
