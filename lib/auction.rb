@@ -19,5 +19,8 @@ class Auction
         names   
     end
 
+    def unpopular_items
+
+    end
  
 end
