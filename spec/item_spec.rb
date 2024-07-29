@@ -17,6 +17,9 @@ RSpec.describe Item do
         it 'exists' do
             expect(@item1).to be_an_instance_of(Item)
             expect(@item2).to be_an_instance_of(Item)
+            expect(@item3).to be_an_instance_of(Item)
+            expect(@item4).to be_an_instance_of(Item)
+            expect(@item5).to be_an_instance_of(Item)
         end
 
         it 'has a name' do
