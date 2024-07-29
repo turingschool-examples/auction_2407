@@ -33,6 +33,10 @@ RSpec.describe Auction do
         it "contains an array for items, since no items, it should be empty" do
             expect(@auction.items).to eq([])
         end
+
+        it "contains an array for attendees, since no attendees, it should be empty" do
+            expect(@auction.bidders).to eq([])
+        end
     end
 
     describe 'add_item' do

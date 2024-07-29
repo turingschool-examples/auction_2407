@@ -1,9 +1,10 @@
 class Auction
 
-    attr_reader :items
+    attr_reader :items, :bidders
 
     def initialize
         @items = []
+        @bidders = []
     end
 
     def add_item(item)
