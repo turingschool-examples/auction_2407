@@ -5,4 +5,8 @@ class Item
         @name = name
         @bids = bid
     end
+
+    def add_bid(attendee, bid)
+        @bids[attendee] = bid
+    end
 end

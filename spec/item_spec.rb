@@ -24,13 +24,14 @@ RSpec.describe Item do
 
     describe '#add_bid()' do
         it 'will add a KVP to the bids hash based on argument' do
+            expect(@item1.bids).to eq({})
             @item1.add_bid(@attendee2, 20)
             
-            expect(@item.bids).to eq({@attendee2 => 20})
+            expect(@item1.bids).to eq({@attendee2 => 20})
 
             @item1.add_bid(@attendee1, 22)
 
-            expect(@item.bids).to eq({
+            expect(@item1.bids).to eq({
                                         @attendee2 => 20,
                                         @attendee1 => 22
                                     })
