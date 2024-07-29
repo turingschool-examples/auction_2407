@@ -16,7 +16,7 @@ RSpec.describe Auction do
             expect(@auction).to be_an_instance_of Auction
         end
 
-        it 'has an empty array for acution items' do
+        it 'has an empty array for auction items' do
             expect(@auction.items).to eq []
         end
     end
