@@ -22,4 +22,12 @@ class Auction
     end
     no_bids
   end
+
+  def potential_revenue
+    bid_list = @items.map do |item|
+      # require 'pry'; binding.pry
+      item.current_high_bid
+    end
+    bid_list.compact.sum
+  end
 end
