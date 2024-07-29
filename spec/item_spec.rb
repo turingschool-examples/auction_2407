@@ -25,6 +25,9 @@ RSpec.describe Item do
         it 'has a name' do
             expect(@item1.name).to eq('Chalkware Piggy Bank')
             expect(@item2.name).to eq('Bamboo Picture Frame')
+            expect(@item3.name).to eq('Homemade Chocolate Chip Cookies')
+            expect(@item4.name).to eq('2 Days Dogsitting')
+            expect(@item5.name).to eq('Forever Stamps')
         end
     end
 end
