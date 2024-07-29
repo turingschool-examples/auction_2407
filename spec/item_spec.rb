@@ -39,5 +39,9 @@ RSpec.describe Item do
             })
         end
     end
+
+    describe 'current_high_bid' do
+
     
+
 end
