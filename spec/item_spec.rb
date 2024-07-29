@@ -30,4 +30,12 @@ RSpec.describe Item do
             expect(@item5.name).to eq('Forever Stamps')
         end
     end
+
+    describe 'add_bid' do
+        it 'can add a bid' do
+            @item1.add_bid(@attendee1, 22)
+            @item1.add_bid(@attendee2, 20)
+            expect(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
+        end
+    end
 end
