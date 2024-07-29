@@ -26,5 +26,7 @@ class Auction
         revenue.compact.sum
     end
 
+    def
+
    
 end

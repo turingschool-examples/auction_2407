@@ -86,6 +86,14 @@ RSpec.describe Auction do
         it 'has a hash for bidder name' do
             expect(@auction.bidders).to eq []
         end
+
+        it 'can add bidders' do
+            @auction.add_bidder(@attendee1)
+            @auction.add_bidder(@attendee2)
+            @auction.add_bidder(@attendee3)
+
+            expect(@auction.bidders).to eq [@attendee1, @attendee2, @attendee3]
+        end
         
         
         # it 'has bidder info' do
