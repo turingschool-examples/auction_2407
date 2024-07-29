@@ -88,5 +88,21 @@ RSpec.describe Auction do
 
             expect(@auction2.bidders).to eq(['Megan', 'Bob'])
         end
+
+        it "will create bidder info tab on the attendee" do
+            @auction2.add_bidder(@attendee1)
+            @auction2.add_bidder(@attendee2)
+
+            expect(@auction2.bidder_info).to eq({
+                @attendee1 => {
+                    :budget => 50,
+                    :items => []
+                },
+                @attendee2 => {
+                    :budget => 75,
+                    :items => []
+                }
+            })
+        end
     end
 end

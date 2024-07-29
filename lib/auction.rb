@@ -30,7 +30,7 @@ class Auction
 
     def add_bidder(attendee)
         @bidders << attendee.name
-
+        @bidder_info[attendee] = { budget: attendee.budget, items: []}
     end
 
 end
