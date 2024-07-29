@@ -99,7 +99,9 @@ RSpec.describe Auction do
             @item4.add_bid(@attendee3, 50)
             @item3.add_bid(@attendee2, 15)
 
-            
+            @attendee1.add_bids(@item1)
+            @attendee2.add_bids(@item1)
+            @attendee3.add_bids(@item4)
 
             expect(@auction.bidder_info).to be_a(Hash)
         end

@@ -9,6 +9,6 @@ class Attendee
     end
 
     def add_bids(item)
-       
+        @bids << item.name
     end
 end

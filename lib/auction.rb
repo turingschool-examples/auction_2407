@@ -42,12 +42,8 @@ class Auction
     def bidder_info
         info = {}
         @attendee_list.map do |attendee|
-            info[attendee] = {budget: attendee.budget, items: nil}
-            # require 'pry'; binding.pry
-            @items.find_all do |item|
-                require 'pry'; binding.pry
-            end
+            info[attendee] = {budget: attendee.budget, items: attendee.bids}
         end
-        
+        info
     end
 end
