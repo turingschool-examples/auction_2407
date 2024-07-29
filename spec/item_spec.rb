@@ -31,6 +31,10 @@ RSpec.describe Item do
       
       expect(@item5.biddable).to be false
     end
+
+    it 'can close bidding on item' do
+      
+    end
   end
 
 end

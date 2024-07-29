@@ -8,8 +8,10 @@ class Item
   end
 
   def add_bid(attendee, bid)
-    unless @biddable == false
+    if @biddable == true
     @bids[attendee] = bid
+    else
+      p "Bidding is closed for this item"
     end
   end
 
