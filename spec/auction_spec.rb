@@ -26,5 +26,13 @@ RSpec.describe Auction do
 
       expect(@auction.items).to eq(expected)
     end
+
+    it 'returns item names' do
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      expected = ['Chalkware Piggy Bank', 'Bamboo Picture Frame']
+
+      expect(@auction.item_names).to eq(expected)
+    end
   end
 end
