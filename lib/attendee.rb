@@ -1,5 +1,5 @@
 class Attendee
-    attr_reader :name, :budget
+    attr_reader :name, :budget, :items
 
     def initialize(attributes)
         @name = attributes[:name]

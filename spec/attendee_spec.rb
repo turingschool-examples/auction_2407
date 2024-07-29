@@ -23,5 +23,9 @@ RSpec.describe Attendee do
         it 'has a budget' do
             expect(@attendee.budget).to eq '$50'
         end
+
+        it 'has a hash for items bid on' do
+            expect(@attendee.items).to eq({})
+        end
     end
 end
