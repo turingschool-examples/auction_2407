@@ -5,6 +5,7 @@ require './lib/attendee'
 RSpec.describe Attendee do
     before(:each) do
         @attendee = Attendee.new({name: 'Megan', budget: '$50'})
+        @item1 = Item.new('Chalkware Piggy Bank')
     end
 
     describe '#initialize' do
@@ -22,6 +23,13 @@ RSpec.describe Attendee do
 
         it 'has bids' do
             expect(@attendee.bids).to eq([])
+        end
+    end
+
+    describe '#add_bids' do
+        it 'adds bids to the bids array' do
+            @attendee.add_bids(@item1)
+            expect(@attendee.bids).to eq(['Chalkware Piggy Bank'])
         end
     end
 end
