@@ -34,11 +34,12 @@ RSpec.describe Item do
     it 'can add bids' do
         expect(@item1.bids).to eq({})
         
-        @item1.add_bid(@attendee2, 20)
         @item1.add_bid(@attendee1, 22)
-
+        @item1.add_bid(@attendee2, 20)
+        
         expect(@item1.bids).to eq({
-            
+            @attendee1 => 22,
+            @attendee2 => 20
         })
     end
 end
