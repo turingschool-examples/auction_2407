@@ -47,4 +47,39 @@ RSpec.describe Auction do
       expect(@auction.unpopular_items).to contain_exactly(@item2, @item5)
     end
   end
+
+  describe 'potential revenue' do 
+    it 'calculates revenue' do 
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @auction.add_item(@item3)
+      @auction.add_item(@item4)
+      @auction.add_item(@item5)
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      @item4.add_bid(@attendee3, 50)
+      @item3.add_bid(@attendee2, 15)
+      expect(@auction.potential_revenue).to eq(87)
+    end
+  end
+
+  describe 'bidder_info' do 
+    it 'returns info on the bidders name' do
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @item1.add_bid(@attendee1, 20)
+      @item1.add_bid(@attendee2, 30)
+      @item2.add_bid(@attendee3, 50)
+      expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
+    end
+
+    it 'returns bidders info' do 
+      info = {
+        @attendee1 => { budget: 50, items: [@item1] },
+        @attendee2 => { budget: 75, items: [@item1] },
+        @attendee3 => { budget: 100, items: [@item2] }
+      }
+      expect(@auction.bidder_info).to eq(info)
+    end
+  end
 end

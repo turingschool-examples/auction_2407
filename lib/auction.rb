@@ -16,13 +16,22 @@ attr_reader :items
     end
   end
 
-  def current_high_bid
-    @bids.values.max || 0
-  end
-
   def unpopular_items
     @items.find_all do |item|
      item.bids.empty?
     end
+  end
+
+  def potential_revenue
+    total_revenue = @items.inject(0) do |sum, item|
+      sum + item.current_high_bid
+    end
+    total_revenue
+  end
+
+  def bidders
+    @items.flat_map { |item| item.bids.keys }
+          .map(&:name)
+          .uniq
   end
 end
