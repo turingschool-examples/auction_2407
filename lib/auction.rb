@@ -31,7 +31,26 @@ attr_reader :items
 
   def bidders
     @items.flat_map { |item| item.bids.keys }
-          .map(&:name)
-          .uniq
+    .map(&:name)
+    .uniq  
+  end
+
+  def bidder_info 
+    info = {}
+    
+    @items.each do |item|
+      item.bids.each do |attendee, _|
+        if !info.key?(attendee)
+          info[attendee] = {
+            budget: attendee.budget,
+            items: []
+          }
+        end
+        info[attendee][:items] << item
+      end
+      # require 'pry'; binding.pry
+
+    end
+    info
   end
 end

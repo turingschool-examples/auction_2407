@@ -74,6 +74,11 @@ RSpec.describe Auction do
     end
 
     it 'returns bidders info' do 
+      @auction.add_item(@item1)
+      @auction.add_item(@item2)
+      @item1.add_bid(@attendee1, 20)
+      @item1.add_bid(@attendee2, 30)
+      @item2.add_bid(@attendee3, 50)
       info = {
         @attendee1 => { budget: 50, items: [@item1] },
         @attendee2 => { budget: 75, items: [@item1] },
