@@ -26,7 +26,9 @@ class Auction
         revenue.compact.sum
     end
 
-    def
+    def add_bidder(attendee)
+        @bidders << attendee.name
+    end
 
    
 end
