@@ -19,4 +19,10 @@ attr_reader :items
   def current_high_bid
     @bids.values.max || 0
   end
+
+  def unpopular_items
+    @items.find_all do |item|
+     item.bids.empty?
+    end
+  end
 end
