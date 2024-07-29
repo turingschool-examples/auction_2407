@@ -33,6 +33,14 @@ RSpec.describe Item do
             expect(@item4.name).to eq('2 Days Dogsitting')
             expect(@item5.name).to eq('Forever Stamps')
         end
+
+        it 'starts with no bids' do
+            expect(@item1.bids).to eq({})
+            expect(@item2.bids).to eq({})
+            expect(@item3.bids).to eq({})
+            expect(@item4.bids).to eq({})
+            expect(@item5.bids).to eq({})
+        end
     end
 
     describe 'add_bid' do
@@ -46,6 +54,15 @@ RSpec.describe Item do
             @item1.add_bid(@attendee1, 22)
             @item1.add_bid(@attendee2, 20)
             expect(@item1.current_high_bid).to eq(22)
+        end
+    end
+
+    describe 'close_bidding' do
+        it 'item can not be bid on after closing' do
+            @item1.add_bid(@attendee1, 22)
+            @item1.close_bidding
+            @item1.add_bid(@attendee2, 25)
+            expect(@item1.bids).to eq({ @attendee1 => 22 })
         end
     end
 end
