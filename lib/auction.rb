@@ -19,7 +19,9 @@ class Auction
     
     def potential_revenue
         tally = 0
-        items.each {|item| tally += item.current_highest_bid}
+        @items.each do |item| 
+            tally += item.current_highest_bid if !(item.bids.empty?)
+        end
         tally
     end
 end
