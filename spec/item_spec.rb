@@ -38,8 +38,20 @@ RSpec.describe Item do
             expect(item1.bids.count).to eq 2
             expect(item1.bids).to eq ({attendee2 => 20, attendee1 => 22}) 
         end
+    end
 
-        it 'has a bid with an attendee and amount' do
+    describe '#current_high_bid' do
+        it 'tracks the highest bid' do
+            item1 = Item.new('Chalkware Piggy Bank')
+            attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+            attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+            expect(item1.current_high_bid).to eq 0
+            
+            item1.add_bid(attendee2, 20)
+            expect(item1.current_high_bid).to eq 20
+
+            item1.add_bid(attendee1, 22)
+            expect(item1.current_high_bid).to eq 22
         end
     end
 end
