@@ -106,6 +106,7 @@ RSpec.describe Auction do
     end
 
     it 'gives an array of bidders names' do
+      
       expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
     end
 end
