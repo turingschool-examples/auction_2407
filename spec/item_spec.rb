@@ -1,4 +1,5 @@
 require './lib/item'
+require './lib/attendee'
 
 RSpec.configure do |config|
     config.formatter = :documentation
@@ -11,6 +12,9 @@ RSpec.describe Item do
         @item3 = Item.new('Homemade Chocolate Chip Cookies')
         @item4 = Item.new('2 Days Dogsitting')
         @item5 = Item.new('Forever Stamps')
+        @attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+        @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+        @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
     end
 
     describe 'Initialize' do
@@ -36,6 +40,12 @@ RSpec.describe Item do
             @item1.add_bid(@attendee1, 22)
             @item1.add_bid(@attendee2, 20)
             expect(@item1.bids).to eq({@attendee1 => 22, @attendee2 => 20})
+        end
+
+        it 'what is the highest bid?' do
+            @item1.add_bid(@attendee1, 22)
+            @item1.add_bid(@attendee2, 20)
+            expect(@item1.current_high_bid).to eq(22)
         end
     end
 end
