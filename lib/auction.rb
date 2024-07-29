@@ -9,4 +9,10 @@ attr_reader :items
   def add_item(item)
     @items << item
   end
+
+  def items_names
+    @items.map do |item|
+      item.name
+    end
+  end
 end
