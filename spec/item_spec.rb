@@ -22,7 +22,14 @@ RSpec.describe Item do
 
   describe '#close_bidding' do
     it 'can be bid on' do
-      expect(@item5.biddable?).to be true
+      expect(@item5.biddable).to be true
+    end
+
+    it 'can not be bid on' do
+      expect(@item5.biddable).to be true
+      @item5.close_bidding
+      
+      expect(@item5.biddable).to be false
     end
   end
 
