@@ -26,4 +26,9 @@ class Auction
         end
         revenue
     end
+
+    def add_bidder(attendee)
+        @bidders << attendee.name
+    end
+
 end
