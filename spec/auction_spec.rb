@@ -44,4 +44,11 @@ RSpec.describe Auction do
             expect(@auction.item_names).to eq ['Chalkware Piggy Bank', 'Bamboo Picture Frame']
         end
     end
+
+    # @auction.add_item(item1)
+    # @auction.add_item(item2)
+    # @auction.add_item(item3)
+    # @auction.add_item(item4)
+    # @auction.add_item(item5)
+
 end 
