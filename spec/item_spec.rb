@@ -59,7 +59,7 @@ RSpec.describe Item do
       @item1.add_bid(@attendee1, 22)
 
       expect(@item1.current_high_bid).to eq(22)
-    end . 
+    end 
     
     # xit 'does not accept additional bids' do
     #   expect(@item1.close_bidding).to eq()

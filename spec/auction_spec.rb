@@ -14,9 +14,9 @@ RSpec.describe Auction do
     @item3 = Item.new('Homemade Chocolate Chip Cookies')
     @item4 = Item.new('2 Days Dogsitting')
     @item5 = Item.new('Forever Stamps')
-    @attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
-    @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
-    @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+    @attendee1 = Attendee.new({name: 'Megan', budget: 50})
+    @attendee2 = Attendee.new({name: 'Bob', budget: 75})
+    @attendee3 = Attendee.new({name: 'Mike', budget: 100})
   end
 
   describe '#initialize' do
