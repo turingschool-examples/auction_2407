@@ -131,4 +131,27 @@ RSpec.describe Auction do
             })
         end
     end
+
+    describe 'close_auction' do
+        it "will close the auction for all items" do
+            @auction2.add_bidder(@attendee1)
+            @auction2.add_bidder(@attendee2)
+
+            @item3.add_bid(@attendee1, 30)
+            @item4.add_bid(@attendee1, 30)
+            @item5.add_bid(@attendee1, 40)
+
+            @item3.add_bid(@attendee2, 25)
+            @item1.add_bid(@attendee2,45)
+
+            @auction2.update_bidder_info_items
+            expect(@auction2.close_auction).to eq({
+                @item1 => @attendee2,
+                @item2 => 'Not Sold',
+                @item3 => @attendee1,
+                @item4 => 'Not Sold',
+                @item5 => 'Not Sold'
+            })
+        end
+    end
 end

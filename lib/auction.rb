@@ -42,4 +42,27 @@ class Auction
         end
     end
 
+    def close_auction
+        auction = Hash.new{}
+        
+        @items.each do |item|
+            if item.bids.empty?
+                auction[item] = 'Not Sold'
+                next
+            end
+            bids_sorted = item.bids.sort_by { |attendee, bid| -bid}
+            bids_sorted.each do |attendee, bid|
+                if @bidder_info[attendee][:budget] >= bid
+                    item.close_bidding
+                    auction[item] = attendee
+                    @bidder_info[attendee][:budget] = @bidder_info[attendee][:budget] - bid
+                    break
+                end
+            end
+            auction[item] = 'Not Sold'
+        end
+        puts auction
+        auction
+    end
+
 end
