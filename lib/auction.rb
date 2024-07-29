@@ -16,4 +16,12 @@ class Auction
     def unpopular_items
         @items.select { |item| item.bids.empty? }
     end
+
+    def potential_revenue
+        revenue = []
+        revenue = @items.map do |item| 
+            item.current_high_bid
+        end
+        revenue.compact.sum
+    end
 end
