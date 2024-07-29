@@ -58,7 +58,7 @@ RSpec.describe Item do
         it "closes the items bidding by returning false" do
             @item1.close_bidding
 
-            expect(@item1.add_bid).to eq(false)
+            expect(@item1.add_bid(@attendee1, 20)).to eq(false)
             expect(@item1.bids).to eq ({})
         end
     end

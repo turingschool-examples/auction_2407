@@ -9,10 +9,13 @@ class Item
     end
 
     def add_bid(attendee, bid)
+        return false if @closed
         @bids[attendee] = bid
     end
 
-
+    def close_bidding
+        @closed = true
+    end
 
     def current_high_bid
         return 0 if @bids.empty?
