@@ -15,4 +15,8 @@ attr_reader :items
       item.name
     end
   end
+
+  def current_high_bid
+    @bids.values.max || 0
+  end
 end
