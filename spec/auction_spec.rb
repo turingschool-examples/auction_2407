@@ -66,5 +66,13 @@ RSpec.describe Auction do
 
       expect(@item1.bids).to eq(expected)
     end
+
+    it 'returns highest bid' do
+      @auction.add_item(@item1)
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+
+      expect(@auction.current_high_bid).to eq 22
+    end
   end
 end
