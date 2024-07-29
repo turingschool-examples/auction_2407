@@ -30,7 +30,7 @@ RSpec.describe Auction do
             expect(@auction.items).to eq []
         end
 
-        it 'has an empty has for bidders' do
+        it 'has an empty hash for bidders' do
             expect(@auction.bidders_info).to eq({})
         end
 
@@ -109,12 +109,10 @@ RSpec.describe Auction do
             @item3.add_bid(@attendee2, 15)
             @item4.add_bid(@attendee3, 50)
 
-
-require 'pry'; binding.pry
             expect(@auction.bidders_info).to eq({
-                @attendee1 => {budget: '$50', items: ['Chalkware Piggy Bank']},
-                @attendee2 => {budget: '$75', items: ['Chalkware Piggy Bank', 'Homemade Chocolate Chip Cookies']},
-                @attendee3 => {budget: '$100', items: ['2 Days Dogsitting']}
+                @attendee1 => {budget: 50, items: ['Chalkware Piggy Bank']},
+                @attendee2 => {budget: 75, items: ['Chalkware Piggy Bank', 'Homemade Chocolate Chip Cookies']},
+                @attendee3 => {budget: 100, items: ['2 Days Dogsitting']}
             })
         end
     end

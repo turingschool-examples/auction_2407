@@ -30,10 +30,13 @@ class Auction
 
     def bidders_info
         bidders_info = {}
-
-        @bidders.each do |bidder|
-            bidders_info[attendee] = { budget: bidder.budget, items: [item.name] }
+    
+        @items.each do |item|
+            item.bids.each do |attendee, bid|
+            bidders_info[attendee] ||= { budget: attendee.budget, items: [] }
+            bidders_info[attendee][:items] << item.name
+            end
         end
-        bidders_info
+        bidders_info      
     end  
 end
