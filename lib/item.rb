@@ -13,6 +13,10 @@ class Item
 
     def current_high_bid
         largest_bid = @bids.max_by{|attendee, bid| bid}
-        largest_bid.last
+        if largest_bid == nil
+            0
+        else
+            largest_bid.last
+        end
     end
 end

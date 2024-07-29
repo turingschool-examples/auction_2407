@@ -23,4 +23,12 @@ class Auction
            item.bids.empty?
         end
     end
+
+    def potential_revenue
+        largest_bids_total = []
+        @items.find_all do |item|
+            largest_bids_total.push(item.current_high_bid)
+        end
+        largest_bids_total.sum
+    end
 end
