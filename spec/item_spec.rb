@@ -47,6 +47,10 @@ RSpec.describe Item do
             
             expect(@item1.current_high_bid).to eq(22)
         end
+
+        it "returns 0 if no bids have been placed" do
+            expect(@item2.current_high_bid).to eq(0)
+        end
     end
 
 end

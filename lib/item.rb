@@ -4,7 +4,7 @@ class Item
 
     def initialize(name)
         @name = name
-        @bids = Hash.new
+        @bids = Hash.new(0)
     end
 
     def add_bid(attendee, bid)
@@ -12,7 +12,9 @@ class Item
     end
 
     def current_high_bid
+        return 0 if @bids.empty?
         max_bid = @bids.max_by { |attendee, bid| bid}
         max_bid.last
     end
+
 end
