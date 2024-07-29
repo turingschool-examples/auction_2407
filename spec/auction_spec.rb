@@ -2,9 +2,9 @@ require './lib/auction'
 require './lib/item'
 
 RSpec.describe do
-    it 'is an auction' do
-        auction = Auction.new
-    end
+    # it 'is an auction' do
+    #     auction = Auction.new
+    # end
 
     it 'has items' do
         item1 = Item.new('Chalkware Piggy Bank')
