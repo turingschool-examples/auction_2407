@@ -18,9 +18,9 @@ RSpec.describe Auction do
         item1 = Item.new('Chalkware Piggy Bank')
         item2 = Item.new('Bamboo Picture Frame')
 
-        auction.add_item(item2)
+        auction.add_item(item1)
         auction.add_item(item2)
 
-        expect(auction.items).to eq([#<Item:0x00007fbda98fa1b0 ...>, #<Item:0x00007fbda91874f0 ...>])
+        expect(auction.items).to eq([item1, item2])
     end
 end
