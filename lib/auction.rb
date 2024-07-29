@@ -34,4 +34,15 @@ class Auction
         end
         output.uniq
     end
+
+    # def bidder_info
+    #     output = {}
+    #     bidders_list = []
+    #     @items.each do |item| 
+    #         if !(item.bids.empty?)
+    #             item.bids.each { |attendee, price| bidders_list << attendee.name}
+    #         end
+    #     end
+    #     bidders_list
+    # end
 end
