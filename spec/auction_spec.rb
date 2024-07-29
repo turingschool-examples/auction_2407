@@ -28,7 +28,12 @@ RSpec.describe do
     end
 
     it 'has attendees' do
-
+        attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+        expect(attendee1).to eq({name: 'Megan', budget: '$50'})
+        attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+        expect(attendee2).to eq({name: 'Bob', budget: '$75'})
+        attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+        expect(attendee3).to eq({name: 'Mike', budget: '$100'})
     end
 
     it 'has bidding' do
@@ -40,6 +45,6 @@ RSpec.describe do
     end
 
     it 'has potential revenue' do
-        
+
     end
 end
