@@ -19,5 +19,9 @@ RSpec.describe Attendee do
         it 'has a budget' do
             expect(@attendee.budget).to eq(50)
         end
+
+        it 'has bids' do
+            expect(@attendee.bids).to eq([])
+        end
     end
 end

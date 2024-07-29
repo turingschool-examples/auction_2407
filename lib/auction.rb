@@ -1,10 +1,11 @@
 class Auction
 
-    attr_reader :items, :bidders
+    attr_reader :items, :bidders, :attendee_list
 
     def initialize
         @items = []
         @bidders = []
+        @attendee_list = []
     end
 
     def add_item(item)
@@ -35,5 +36,18 @@ class Auction
 
     def admit_attendees(attendee)
         @bidders << attendee.name
+        @attendee_list << attendee
+    end
+
+    def bidder_info
+        info = {}
+        @attendee_list.map do |attendee|
+            info[attendee] = {budget: attendee.budget, items: nil}
+            # require 'pry'; binding.pry
+            @items.find_all do |item|
+                require 'pry'; binding.pry
+            end
+        end
+        
     end
 end

@@ -81,4 +81,27 @@ RSpec.describe Auction do
             expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
         end
     end
+
+    describe '#bidder_info' do
+        it 'returns a hash of the bidder, budget, and items bid for' do
+            @auction.admit_attendees(@attendee1)
+            @auction.admit_attendees(@attendee2)
+            @auction.admit_attendees(@attendee3)
+
+            @auction.add_item(@item1)
+            @auction.add_item(@item2)
+            @auction.add_item(@item3)
+            @auction.add_item(@item4)
+            @auction.add_item(@item5)
+
+            @item1.add_bid(@attendee1, 22)
+            @item1.add_bid(@attendee2, 20)
+            @item4.add_bid(@attendee3, 50)
+            @item3.add_bid(@attendee2, 15)
+
+            
+
+            expect(@auction.bidder_info).to be_a(Hash)
+        end
+    end
 end
