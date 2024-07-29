@@ -11,7 +11,8 @@ class Item
     end
 
     def current_high_bid
-        bids = @bids.max_by { |attendee, bid| bid }
-        current_high_bid = bids[1]
+        @bids.values.max
+        # bids = @bids.max_by { |attendee, bid| bid }
+        # current_high_bid = bids[1]
     end
 end

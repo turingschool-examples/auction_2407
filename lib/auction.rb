@@ -12,4 +12,12 @@ class Auction
     def item_names
         items.map { |item| item.name }
     end
+
+    def unpopular_items
+
+        unpopular_items = []
+        
+        # look through each item
+        # if item does not have any bids, put that item in the unpopular items array
+    end
 end
