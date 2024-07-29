@@ -1,10 +1,8 @@
 class Auction
-    attr_reader :items, :bidders, :bidders_info
-
+    attr_reader :items, :bidders
     def initialize
         @items = []
         @bidders = []
-        @bidders_info = {}
     end
 
     def add_item(item)
@@ -30,5 +28,12 @@ class Auction
         @bidders << attendee.name
     end
 
-   
+    def bidders_info
+        bidders_info = {}
+
+        @bidders.each do |bidder|
+            bidders_info[attendee] = { budget: bidder.budget, items: [item.name] }
+        end
+        bidders_info
+    end  
 end

@@ -22,7 +22,7 @@ RSpec.describe Attendee do
         end
 
         it 'has a budget' do
-            expect(@attendee.budget).to eq '$50'
+            expect(@attendee.budget).to eq 50
         end
 
         it 'has a hash for items bid on' do
@@ -31,7 +31,7 @@ RSpec.describe Attendee do
     end
 
     it 'can bid on items in their budget' do
-        @attendee.bid(@item1)
+        @attendee.bid(@item1, 20)
 
         expect(@attendee.items).to eq [@item1]
     end

@@ -3,11 +3,17 @@ class Attendee
 
     def initialize(attributes)
         @name = attributes[:name]
-        @budget = attributes[:budget]
+        @budget = attributes[:budget].delete("$").to_i
         @items = []
     end
 
-    def bid(item)
-        @items << item
+    def bid(item, bid)
+        if bid <= @budget
+            item.add_bid(self, bid)
+            @items << item
+        else
+            puts "Not enough money to bid."
+        end
+      
     end
 end
