@@ -40,4 +40,19 @@ RSpec.describe Auction do
             expect(@auction.item_names).to eq(["Chalkware Piggy Bank", "Bamboo Picture Frame"])
         end
     end
+
+    describe '#unpopular_items' do
+        it 'does not have any bids' do
+            @auction.add_item(@item1)
+            @auction.add_item(@item2)
+            @auction.add_item(@item3)
+            @auction.add_item(@item4)
+            @auction.add_item(@item5)
+            @item1.add_bid(@attendee1, 22)
+            @item1.add_bid(@attendee2, 20)
+            @item4.add_bid(@attendee3, 50)
+           
+            expect(@auction.unpopular_items).to eq([@item2, @item3, @item5])
+        end
+    end
 end
