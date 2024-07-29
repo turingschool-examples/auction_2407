@@ -8,7 +8,6 @@ require './lib/attendee'
 
 RSpec.configure do |config|
   config.default_formatter = 'doc'
-  config.mock_with :mocha
 end
 
 RSpec.describe 'Auction Spec Harness' do
