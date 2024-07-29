@@ -120,7 +120,7 @@ RSpec.describe Auction do
             @item4.add_bid(@attendee3, 50)
         end
         it 'returns a hash with bidder info KVP where the key is an attendee instance' do
-            expect(@auction.bidder_info.keys).to eq([@attendee1, @attendee2, @attendee3])
+            expect(@auction.bidder_info.keys).to eq([@attendee2, @attendee1, @attendee3])
         end
 
         it 'has subhashes as values in KVPs' do

@@ -35,14 +35,23 @@ class Auction
         output.uniq
     end
 
-    # def bidder_info
-    #     output = {}
-    #     bidders_list = []
-    #     @items.each do |item| 
-    #         if !(item.bids.empty?)
-    #             item.bids.each { |attendee, price| bidders_list << attendee.name}
-    #         end
-    #     end
-    #     bidders_list
-    # end
+    def bidder_info
+        output = {}
+        @items.each do |item| 
+            if !(item.bids.empty?)
+                item.bids.each do |attendee, price| 
+                    output[attendee] = {budget: attendee.budget, 
+                                        items: []}
+                end
+            end
+        end
+        @items.each do |item|
+            item.bids.each do |attendee, price|
+                if item.bids.keys.include?(attendee)
+                    output[attendee][:items].push(item)
+                end
+            end
+        end
+        output
+    end
 end
