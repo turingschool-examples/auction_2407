@@ -6,6 +6,9 @@ RSpec.describe Item do
     before(:each) do
         @item1 = Item.new('Chalkware Piggy Bank')
         @item2 = Item.new('Bamboo Picture Frame')
+        @attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+        @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+        @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
     end
 
     describe '#initialize' do
@@ -22,4 +25,11 @@ RSpec.describe Item do
         end
     end
 
+    describe '#add_bid' do
+        it 'can add bids to the item bids hash' do
+            @item1.add_bid(@attendee1, 22)
+            @item1.add_bid(@attendee2, 20)
+            expect(@item1.bids).to eq({@attendee1=>20, @attendee2=>22})
+        end
+    end
 end
