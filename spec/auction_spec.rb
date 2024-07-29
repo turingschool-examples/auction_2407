@@ -58,6 +58,16 @@ RSpec.describe Auction do
             @item4.add_bid(@attendee3, 50)
 
             expect(@auction.unpopular_items).to eq([@item3, @item5])
+
+            @item3.add_bid(@attendee2, 15)
+
+            expect(@auction.unpopular_items).to eq([@item5])
+        end
+    end
+
+    describe 'potential_revenue' do
+        it 'returns the total possible sale price of all items being sold at highest bid' do
+
         end
     end
 end
