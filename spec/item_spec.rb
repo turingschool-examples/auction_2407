@@ -3,6 +3,7 @@ require './lib/item'
 RSpec.describe Item do
   before(:each) do
     @item1 = Item.new('Chalkware Piggy Bank')
+    @item2 = Item.new('Bamboo Picture Frame')
   end
 
   describe 'initialize' do
