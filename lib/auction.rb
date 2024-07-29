@@ -25,9 +25,18 @@ class Auction
 
   def potential_revenue
     bid_list = @items.map do |item|
-      # require 'pry'; binding.pry
       item.current_high_bid
     end
     bid_list.compact.sum
+  end
+
+  def bidders
+    bidder_names = []
+    @items.each do |item|
+      item.bids.each do |bid|
+        bidder_names << bid[0].name
+      end
+    end
+    bidder_names
   end
 end
