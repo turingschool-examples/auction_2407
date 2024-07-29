@@ -45,20 +45,34 @@ RSpec.describe Auction do
     end
 
     it 'can track unpopular bids' do
-        @item1.add_bid(@attendee1, 22)
-        @item1.add_bid(@attendee2, 20)
-        @item4.add_bid(@attendee3, 50)
-
         @auction.add_item(@item1)
         @auction.add_item(@item2)
         @auction.add_item(@item3)
         @auction.add_item(@item4)
-
+        
+        @item1.add_bid(@attendee1, 22)
+        @item1.add_bid(@attendee2, 20)
+        @item4.add_bid(@attendee3, 50)
+     
         expect(@auction.unpopular_items).to eq [@item2, @item3]
 
         @item3.add_bid(@attendee2, 15)
 
         expect(@auction.unpopular_items).to eq [@item2]
+    end
+
+    it 'can track potential revenue' do
+        @auction.add_item(@item1)
+        @auction.add_item(@item2)
+        @auction.add_item(@item3)
+        @auction.add_item(@item4)
+
+        @item1.add_bid(@attendee1, 22)
+        @item1.add_bid(@attendee2, 20)
+        @item3.add_bid(@attendee2, 15)
+        @item4.add_bid(@attendee3, 50)
+
+        expect(@auction.potential_revenue).to eq 87
     end
     
 
