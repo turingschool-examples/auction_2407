@@ -67,7 +67,21 @@ RSpec.describe Auction do
 
     describe 'potential_revenue' do
         it 'returns the total possible sale price of all items being sold at highest bid' do
+            @auction.add_item(@item1)
+            @auction.add_item(@item2)
+            @auction.add_item(@item3)
+            @auction.add_item(@item4)
+            @item1.add_bid(@attendee2, 20) #LOWER PRICE DISREGARD
+            @item1.add_bid(@attendee1, 22)
+            @item2.add_bid(@attendee3, 1) #LOWER PRICE DISREGARD
+            @item2.add_bid(@attendee2, 20)
+            @item3.add_bid(@attendee3, 1) #LOWER PRICE DISREGARD
+            @item3.add_bid(@attendee2, 15)
+            @item4.add_bid(@attendee3, 1) #LOWER PRICE DISREGARD
+            @item4.add_bid(@attendee2, 2) #LOWER PRICE DISREGARD
+            @item4.add_bid(@attendee3, 50)
 
+            expect(@auction.potential_revenue).to eq(107)
         end
     end
 end
