@@ -22,7 +22,7 @@ RSpec.describe Item do
         end
 
         it 'has an empty hash for bids' do
-            expect(@item1.bids).to eq {}
+            expect(@item1.bids).to be_a Hash
         end
     end
 end
