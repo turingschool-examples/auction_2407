@@ -1,9 +1,10 @@
 class Auction
 
-    attr_reader :items
+    attr_reader :items, :bidders
 
     def initialize
         @items = []
+        @bidders = []
     end
 
     def add_item(item)
@@ -30,5 +31,9 @@ class Auction
             largest_bids_total.push(item.current_high_bid)
         end
         largest_bids_total.sum
+    end
+
+    def admit_attendees(attendee)
+        @bidders << attendee.name
     end
 end
