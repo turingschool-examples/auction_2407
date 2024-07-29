@@ -14,10 +14,8 @@ class Auction
     end
 
     def unpopular_items
-
-        unpopular_items = []
-        
-        # look through each item
-        # if item does not have any bids, put that item in the unpopular items array
+        @items.select do |item| 
+            item.bids.empty?
+        end
     end
 end
