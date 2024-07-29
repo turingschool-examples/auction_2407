@@ -15,7 +15,7 @@ class Item
     @bids.values.max
   end
 
-  def close_bidding
-    @close = true
-  end
+  # def close_bidding
+  #   @close = true
+  # end
 end

@@ -61,7 +61,7 @@ RSpec.describe Item do
       expect(@item1.current_high_bid).to eq(22)
     end . 
     
-    xit 'does not accept additional bids' do
-      expect(@item1.close_bidding).to eq()
-    end
+    # xit 'does not accept additional bids' do
+    #   expect(@item1.close_bidding).to eq()
+    # end
   end
