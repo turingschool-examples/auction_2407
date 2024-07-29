@@ -39,4 +39,14 @@ class Auction
     end
     bidder_names
   end
+
+  def bidder_info
+    info = Hash.new(0)
+    @items.each do |item|
+      item.bids.each do |bid|
+        info[bid[0].name] = bid[0].budget
+        #assign this hash value to the key of the attendee
+      end
+    end
+  end
 end
