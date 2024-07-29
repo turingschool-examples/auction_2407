@@ -1,7 +1,7 @@
 require './lib/item'
 require './lib/attendee'
 
-Spec.configure do |config|
+RSpec.configure do |config|
   config.formatter = :documentation
 end
 
@@ -11,7 +11,7 @@ RSpec.describe Attendee do
   end
 
   it 'exists' do 
-    exepct(@ttendee).to be_an_instance_of(Attendee)
+    expect(@attendee).to be_an_instance_of(Attendee)
   end
 end
   
