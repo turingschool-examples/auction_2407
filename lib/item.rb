@@ -10,5 +10,6 @@ class Item
     def add_bid(attendee, bid)
         @bids[attendee] = bid
     end
+
     
 end
