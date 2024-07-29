@@ -48,11 +48,23 @@ RSpec.describe Auction do
   end
 
   describe '#bids' do
-    it 'returns bids' do
+    it 'can access item bids' do
       @auction.add_item(@item1)
 
       expect(@item1.bids).to eq({})
+    end
 
+    it 'adds bids' do
+      expect(@item1.bids).to eq({})
+      @auction.add_item(@item1)
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+      expected = {
+        @attendee2 => 20,
+        @attendee1 => 22
+      }
+
+      expect(@item1.bids).to eq(expected)
     end
   end
 end
