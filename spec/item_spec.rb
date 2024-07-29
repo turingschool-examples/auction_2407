@@ -58,9 +58,8 @@ RSpec.describe Item do
             expect(@item1.current_highest_bid).to eq(20)
 
             @item1.close_bidding
-
-            @item1.add_bid(@attendee1, 22)
-            expect(@item1.current_highest_bid).to eq(20)
+            
+            expect{@item1.add_bid(@attendee1, 22)}.to raise_error(FrozenError)
         end
     end
 end
