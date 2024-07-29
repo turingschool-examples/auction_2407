@@ -1,4 +1,6 @@
 require './lib/item'
+require './lib/item'
+require './lib/attendee'
 
 RSpec.describe Item do
   before(:each) do
@@ -33,8 +35,13 @@ RSpec.describe Item do
     end
 
     it 'can close bidding on item' do
-      
+      @item4.add_bid(@attendee3, 50)
+      expect(@item4.current_high_bid).to eq 50
+      @item4.close_bidding
+      closed_message = "Bidding is closed for this item"
+
+      expect(@item4.add_bid(@attendee2, 60)).to eq(closed_message)
+      expect(@item4.current_high_bid).to eq 50
     end
   end
-
 end
