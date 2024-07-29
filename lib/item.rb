@@ -8,7 +8,11 @@ class Item
     end
 
     def add_bid(attendee, bid)
-        # require 'pry'; binding.pry
         @bids[attendee] = bid
+    end
+
+    def current_high_bid
+        largest_bid = @bids.max_by{|attendee, bid| bid}
+        largest_bid.last
     end
 end
