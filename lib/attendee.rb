@@ -3,10 +3,11 @@ class Attendee
 
     def initialize(hash)
         @name = hash[:name]
-        @budget = hash[:budget]
+        @budget = budget_convert(hash[:budget])
     end
 
     def budget_convert(string)
-        string.
+        string.slice!('$')
+        string.to_i
     end
 end

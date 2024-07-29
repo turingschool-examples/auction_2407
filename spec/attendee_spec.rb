@@ -16,7 +16,7 @@ RSpec.describe Attendee do
         it 'modifies budget string into integer' do
             attendee = Attendee.new({name: 'Megan', budget: '$50'})
             start_string = '$50'
-            budget = attendee.budget_convert
+            budget = attendee.budget_convert(start_string)
 
             expect(budget).to eq 50
         end
