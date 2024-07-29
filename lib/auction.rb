@@ -18,4 +18,8 @@ class Auction
     end
     
     def potential_revenue
+        tally = 0
+        items.each {|item| tally += item.current_highest_bid}
+        tally
+    end
 end
