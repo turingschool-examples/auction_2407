@@ -16,6 +16,10 @@ RSpec.describe Item do
             expect(@item1.name).to eq('Chalkware Piggy Bank')
             expect(@item2.name).to eq('Bamboo Picture Frame')
         end
+
+        it "generates an emtpy hash for bids" do
+            expect(@item1.bids).to eq({})
+        end
     end
 
 
