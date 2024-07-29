@@ -1,8 +1,8 @@
 class Attendee
     attr_reader :name, :budget
 
-    def initialize(person)
-        @name = name
-        @budget = budget
+    def initialize(people)
+        @name = people[:name]
+        @budget = people[:budget]
     end
 end
