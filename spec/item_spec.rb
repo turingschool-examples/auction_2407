@@ -26,6 +26,7 @@ RSpec.describe Item do
         it "generates an emtpy hash for bids" do
             expect(@item1.bids).to eq({})
         end
+
     end
 
     describe 'add_bid' do
@@ -50,6 +51,15 @@ RSpec.describe Item do
 
         it "returns 0 if no bids have been placed" do
             expect(@item2.current_high_bid).to eq(0)
+        end
+    end
+
+    describe "close_bidding" do
+        it "closes the items bidding by returning false" do
+            @item1.close_bidding
+
+            expect(@item1.add_bid).to eq(false)
+            expect(@item1.bids).to eq ({})
         end
     end
 
