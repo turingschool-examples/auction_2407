@@ -15,6 +15,5 @@ class Auction
 
     def unpopular_items
         @items.select { |item| item.bids.empty? }
-        end
     end
 end
