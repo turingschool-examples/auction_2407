@@ -17,4 +17,12 @@ class Auction
     def unpopular_items
         unpop_items = @items.find_all { |item| item.bids.empty?}
     end
+
+    def potential_revenue
+        revenue = 0
+        @items.each do |item|
+            revenue += item.current_high_bid
+        end
+        revenue
+    end
 end
