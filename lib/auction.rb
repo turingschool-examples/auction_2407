@@ -1,10 +1,11 @@
 class Auction
 
-    attr_reader :items, :bidders
+    attr_reader :items, :bidders, :bidder_info
 
     def initialize
         @items = []
         @bidders = []
+        @bidder_info = Hash.new
     end
 
     def add_item(item)
@@ -29,6 +30,7 @@ class Auction
 
     def add_bidder(attendee)
         @bidders << attendee.name
+
     end
 
 end

@@ -37,6 +37,10 @@ RSpec.describe Auction do
         it "contains an array for attendees, since no attendees, it should be empty" do
             expect(@auction.bidders).to eq([])
         end
+
+        it "contain an emtpy hash to store bidder info" do
+            expect(@auction.bidder_info).to eq({})
+        end
     end
 
     describe 'add_item' do
