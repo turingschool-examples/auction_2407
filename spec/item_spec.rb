@@ -14,7 +14,7 @@ RSpec.describe Item do
 
     describe 'initialize' do 
         it 'exists' do
-            expect(@item1).to be Item
+            expect(@item1).to be_an_instance_of Item
         end
     end
 end
