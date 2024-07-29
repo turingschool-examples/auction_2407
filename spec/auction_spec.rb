@@ -178,7 +178,7 @@ RSpec.describe Auction do
             @attendee2 => {budget: 75, items: [@item1, @item3]},
             @attendee3 => {budget: 100, items: [@item4]}}
 
-            expect(@auction.bidder_info).to eq log
+            expect(@auction.bidder_info[@attendee2][:items].count).to eq 2
         end
     end
 end

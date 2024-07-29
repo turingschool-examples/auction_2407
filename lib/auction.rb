@@ -38,9 +38,10 @@ class Auction
     end
 
     def bidder_info
-        @bidders.each do |bidder|
-            all_bids = @items.select{|item| item.bids.find(bidder)}
-            @bidder_info[bidder][:items] = all_bids if all_bids.count > 0
+        @bidder_info.keys.each do |attendee|
+            all_bids = []
+            all_bids = @items.select{|item| item.bids.include?(attendee)}
+            @bidder_info[attendee][:items] = all_bids if all_bids.count > 0
         end
         @bidder_info
     end
