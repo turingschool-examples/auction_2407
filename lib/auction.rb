@@ -18,7 +18,6 @@ class Auction
     end
 
     def potential_revenue
-        revenue = []
         revenue = @items.map do |item| 
             item.current_high_bid
         end
