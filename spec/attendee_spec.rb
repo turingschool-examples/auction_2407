@@ -12,10 +12,13 @@ RSpec.describe Attendee do
             expect(@attendee1).to be_an_instance_of Attendee
         end
 
-        # it "stores names" do
-        #     expect(@item1.name).to eq('Chalkware Piggy Bank')
-        #     expect(@item2.name).to eq('Bamboo Picture Frame')
-        # end
+        it "stores names" do
+            expect(@attendee1.name).to eq("Megan")
+        end
+
+        it "stores budget" do
+            expect(@attendee1.budget).to eq(50)
+        end
     end
 
 
