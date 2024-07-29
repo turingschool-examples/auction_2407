@@ -24,4 +24,14 @@ class Auction
         end
         tally
     end
+
+    def bidders
+        output = []
+        @items.each do |item| 
+            if !(item.bids.empty?)
+                item.bids.each { |attendee, price| output << attendee.name}
+            end
+        end
+        output.uniq
+    end
 end

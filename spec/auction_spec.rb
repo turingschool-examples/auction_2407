@@ -95,11 +95,11 @@ RSpec.describe Auction do
             @item2.add_bid(@attendee2, 20)
             @item3.add_bid(@attendee2, 15)
             
-            expect (@auction.bidders).to eq([@attendee1, @attendee2])
+            expect(@auction.bidders).to eq(["Megan", "Bob"])
             
             @item4.add_bid(@attendee3, 50)
 
-            expect (@auction.bidders).to eq([@attendee1, @attendee2, @attendee3])
+            expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
         end
     end
 end
