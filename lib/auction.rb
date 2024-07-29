@@ -1,9 +1,10 @@
 class Auction
-    attr_reader :items, :bidders
+    attr_reader :items, :bidders, :bidders_info
 
     def initialize
         @items = []
-        @bidders = {}
+        @bidders = []
+        @bidders_info = {}
     end
 
     def add_item(item)
@@ -25,8 +26,5 @@ class Auction
         revenue.compact.sum
     end
 
-    # def bidders_info
-    #     bidders_info = {}
-    #     @
-    # end
+   
 end

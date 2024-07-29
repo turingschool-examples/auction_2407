@@ -31,7 +31,7 @@ RSpec.describe Auction do
         end
 
         it 'has an empty has for bidders' do
-            expect(@auction.bidders).to eq({})
+            expect(@auction.bidders_info).to eq({})
         end
 
         it 'can add items to auction items' do
@@ -83,6 +83,11 @@ RSpec.describe Auction do
     end
 
     describe 'bidders' do
+        it 'has a hash for bidder name' do
+            expect(@auction.bidders).to eq []
+        end
+        
+        
         # it 'has bidder info' do
         #     @auction.add_item(@item1)
         #     @auction.add_item(@item3)
