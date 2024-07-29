@@ -1,4 +1,3 @@
-require './lib/item'
 require './lib/attendee'
 
 RSpec.configure do |config|
@@ -7,7 +6,7 @@ end
 
 RSpec.describe Attendee do 
   before(:each) do 
-    @attendee = Attendee.new({name: 'Megan'})
+    @attendee = Attendee.new({name: 'Megan', budget: '$50'})
   end
 
   it 'exists' do 
@@ -16,6 +15,10 @@ RSpec.describe Attendee do
 
   it 'has a name' do
     expect(@attendee.name).to eq('Megan')
+  end
+
+  it 'has a budget' do
+    expect(@attendee.budget).to eq(50)
   end
 end
   
