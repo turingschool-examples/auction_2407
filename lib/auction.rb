@@ -17,4 +17,12 @@ class Auction
         end
         unpop_items
     end
+
+    def potential_revenue
+        potential_rev = 0
+        @items.each do |item|
+            potential_rev += item.current_high_bid
+        end
+        potential_rev
+    end
 end
