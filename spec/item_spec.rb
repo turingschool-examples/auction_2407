@@ -22,6 +22,15 @@ RSpec.describe Item do
     end
   end
 
+  describe '#bidding' do
+    it 'returns highest bid' do
+      @item1.add_bid(@attendee2, 20)
+      @item1.add_bid(@attendee1, 22)
+
+      expect(@item1.current_high_bid).to eq 22
+    end
+  end
+
   describe '#close_bidding' do
     it 'returns true of biddable' do
       expect(@item5.biddable).to be true
