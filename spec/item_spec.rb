@@ -54,4 +54,33 @@ RSpec.describe Item do
             expect(item1.current_high_bid).to eq 22
         end
     end
+
+    describe '#close_bidding' do
+        it 'toggles a class attribute off when called' do
+            item1 = Item.new("Chalkware Piggy Bank")
+            attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+            expect(item1.closed?).to eq false
+
+            item1.close_bidding
+            expect(item1.closed?).to eq true
+        end
+
+        it 'accepts bids while open' do
+            item1 = Item.new("Chalkware Piggy Bank")
+            attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+            item1.add_bid(attendee1, 22)
+
+            expect(item1.bids.count).to eq 1
+        end
+
+        it 'doesnt accept bids when closed' do
+            item1 = Item.new("Chalkware Piggy Bank")
+            attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+            item1.close_bidding
+            expect(item1.closed?).to eq true
+            item1.add_bid(attendee1, 22)
+
+            expect(item1.bids.count).to eq 0
+        end
+    end
 end

@@ -114,4 +114,22 @@ RSpec.describe Auction do
             expect(@auction.potential_revenue).to eq 87
         end
     end
+
+    describe '#bidders' do
+        before(:each) do
+            @attendee1 = Attendee.new({name: 'Megan', budget: '$50'})
+            @attendee2 = Attendee.new({name: 'Bob', budget: '$75'})
+            @attendee3 = Attendee.new({name: 'Mike', budget: '$100'})
+            @auction = Auction.new
+        end
+
+        it 'accepts each bidder into an array' do
+            expect(@auction.bidders.count).to eq 3
+        end
+
+        it 'accepts just the name as a string' do
+            expect(@auction.bidders).to eq ['Megan', 'Bob', 'Mike']
+        end
+    end
+
 end
