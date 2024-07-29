@@ -8,7 +8,9 @@ class Item
   end
 
   def add_bid(attendee, bid)
+    unless @biddable == false
     @bids[attendee] = bid
+    end
   end
 
   def current_high_bid
