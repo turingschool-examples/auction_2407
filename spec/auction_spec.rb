@@ -78,9 +78,22 @@ RSpec.describe Auction do
         end
     end
 
-    describe 'biders' do
+    describe 'bidders' do
         it 'has bidder info' do
+            @auction.add_item(@item1)
+            @auction.add_item(@item3)
+            @auction.add_item(@item4)
 
+            @item1.add_bid(@attendee1, 22)
+            @item1.add_bid(@attendee2, 20)
+            @item3.add_bid(@attendee2, 15)
+            @item4.add_bid(@attendee3, 50)
+
+            expect(@auction.bidders_info).to eq({
+                @attendee1 => {budget: '$50', items: ['Chalkware Piggy Bank']},
+                @attendee2 => {budget: '$75', items: ['Chalkware Piggy Bank', 'Homemade Chocolate Chip Cookies']},
+                @attendee3 => {budget: '$100', items: ['2 Days Dogsitting']}
+            })
         end
     end
 
