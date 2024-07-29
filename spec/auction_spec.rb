@@ -102,4 +102,37 @@ RSpec.describe Auction do
             expect(@auction.bidders).to eq(["Megan", "Bob", "Mike"])
         end
     end
+
+    describe '#bidder_info' do
+        before (:each) do
+            @auction.add_item(@item1)
+            @auction.add_item(@item2)
+            @auction.add_item(@item3)
+            @auction.add_item(@item4)
+            @item1.add_bid(@attendee2, 20) #LOWER PRICE DISREGARD
+            @item1.add_bid(@attendee1, 22)
+            @item2.add_bid(@attendee3, 1) #LOWER PRICE DISREGARD
+            @item2.add_bid(@attendee2, 20)
+            @item3.add_bid(@attendee3, 1) #LOWER PRICE DISREGARD
+            @item3.add_bid(@attendee2, 15)
+            @item4.add_bid(@attendee3, 1) #LOWER PRICE DISREGARD
+            @item4.add_bid(@attendee2, 2) #LOWER PRICE DISREGARD
+            @item4.add_bid(@attendee3, 50)
+        end
+        it 'returns a hash with bidder info KVP where the key is an attendee instance' do
+            expect(@auction.bidder_info.keys).to eq([@attendee1, @attendee2, @attendee3])
+        end
+
+        it 'has subhashes as values in KVPs' do
+            expect(@auction.bidder_info[@attendee1]).to be_a(Hash)
+        end
+        
+        it 'has a budget KVP with an int value' do
+            expect(@auction.bidder_info[@attendee1][:budget]).to eq (50)
+        end
+
+        it 'has an items KVP with an array value based on what the attendee has bid on' do
+            expect(@auction.bidder_info[@attendee3][:items]).to eq([@item2, @item3, @item4])
+        end
+    end
 end
