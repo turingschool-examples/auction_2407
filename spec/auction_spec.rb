@@ -76,4 +76,13 @@ RSpec.describe Auction do
             expect(@auction2.potential_revenue).to eq(82)
         end
     end
+
+    describe 'add_bidder' do
+        it 'can add bidder to the bidders array, which stores the bidders name' do
+            @auction2.add_bidder(@attendee1)
+            @auction2.add_bidder(@attendee2)
+
+            expect(@auction2.bidders).to eq(['Megan', 'Bob'])
+        end
+    end
 end
