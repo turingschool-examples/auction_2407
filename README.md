@@ -11,7 +11,7 @@
 
 ## Iteration 1 - Items, Attendees & Auctions
 
-Use TDD to create Item, Attendee, & Auction that will respond to the interaction pattern below:
+Us Auction that we TDD to create Item, Attendee, &ill respond to the interaction pattern below:
 
 ```ruby
 pry(main)> require './lib/item'
